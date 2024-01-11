@@ -102,7 +102,7 @@ admin_route.get('/delete-product-image/:imgid/:prodid',adminController.deleteIma
 admin_route.post("/edit-image/:id",upload.array('image'), adminController.updateImage)
 
 
-admin_route.get('/categoryList', auth.is_Login, adminController.categoryList);
+admin_route.get('/categoryList', auth.is_Login, adminController.CategoryList);
 admin_route.get('/categoryAdd', auth.is_Login, adminController.categoryAdd);
 admin_route.post('/categoryAdd', auth.is_Login, uploadCategory.single('image'), adminController.categoryInsert);
 admin_route.get('/deleteProduct', auth.is_Login, adminController.deleteProduct);

@@ -461,11 +461,10 @@ const editingProduct = async(req,res)=>{
 }
 
 
-const categoryList = async (req, res) => {
+const CategoryList = async (req, res) => {
     try {
         console.log("helloooo")
         const categoryData = await Category.find();
-        console.log(categoryData)
         res.render('categoryList', { categorys: categoryData });
 
 
@@ -1130,7 +1129,7 @@ module.exports = {
     ProductForm,
     productList,
     ProductInsert,
-    categoryList,
+    CategoryList,
     categoryInsert,
     categoryAdd,
     deleteProduct,
