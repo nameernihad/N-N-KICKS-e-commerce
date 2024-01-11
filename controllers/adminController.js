@@ -47,7 +47,7 @@ const sentResetPassword = async (name, email, token) => {
             from: config.emailUser,
             to: email,
             subject: 'For Reset Password ',
-            html: '<p>hay ' + name + ',please click here to <a href="http://localhost:3000/admin/forget-password?token=' + token + '">Reset</a> your password.</p>'
+            html: '<p>hay ' + name + ',please click here to <a href="https://nn-kicks.onrender/admin/forget-password?token=' + token + '">Reset</a> your password.</p>'
 
         }
         transporter.sendMail(mailOption, function (error, info) {
