@@ -463,7 +463,7 @@ const editingProduct = async(req,res)=>{
 
 const categoryList = async (req, res) => {
     try {
-
+        console.log("helloooo")
         const categoryData = await Category.find();
         res.render('categoryList', { categorys: categoryData });
 
