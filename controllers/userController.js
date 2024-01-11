@@ -1282,7 +1282,7 @@ const loadCategory = async(req,res)=>{
 
 
     } catch (error) {
-        console.log(error.log);
+        console.log(error.message);
     }
 }
 
