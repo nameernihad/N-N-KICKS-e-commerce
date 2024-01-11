@@ -465,7 +465,7 @@ const CategoryList = async (req, res) => {
     try {
         console.log("helloooo")
         const categoryData = await Category.find();
-        res.render('categoryList', { categorys: categoryData });
+        res.render('categoryLIst', { categorys: categoryData });
 
 
     }
@@ -557,7 +557,7 @@ const brandList = async (req, res) => {
 
 
         const brandData = await Brand.find();
-        res.render('brand-list', { brands: brandData });
+        res.render('Brand-list', { brands: brandData });
 
 
     }
