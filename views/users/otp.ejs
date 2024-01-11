@@ -1,0 +1,47 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet/style.css">
+    <script src="otp.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        
+    <h3 class="title">OTP Verification</h3>
+    <p class="sub-title">
+      Enter the OTP you received to your phone number
+      
+    </p>
+    <%  
+
+    if(typeof message !=='undefined'){
+      %>
+
+      <p style="color: rgb(246, 62, 6);"><%= message %></p>
+      <%
+    }
+    
+    
+    %>
+    <form action="/otp" method="post">
+    <div class="">
+      <input type="mobile" placeholder="enter otp"  name="otp">
+    
+      <input type="hidden" value="<%= message %>" name="phone">
+    </div>
+
+    <button type="submit"> next</button>
+  </form>
+  </div>
+  
+</body>`
+</html>
+
+
