@@ -465,6 +465,7 @@ const categoryList = async (req, res) => {
     try {
         console.log("helloooo")
         const categoryData = await Category.find();
+        console.log(categoryData)
         res.render('categoryList', { categorys: categoryData });
 
 
