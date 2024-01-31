@@ -79,7 +79,7 @@ const sentVerifyMail = async (name, email, user_id) => {
             from: config.emailUser,
             to: email,
             subject: 'For verification mail',
-            html: '<p>hay ' + name + ',please click here to <a href="https://nn-kicks.onrender/verify?id=' + user_id + '">verify</a> your mail.</p>'
+            html: '<p>hay ' + name + ',please click here to <a href="https://nn-kicks.onrender.com/verify?id=' + user_id + '">verify</a> your mail.</p>'
 
         }
         transporter.sendMail(mailOption, function (error, info) {
@@ -124,7 +124,7 @@ const sentResetPassword = async (name, email, token) => {
             from: config.emailUser,
             to: email,
             subject: 'For Reset Password ',
-            html: '<p>hay ' + name + ',please click here to <a href="https://nn-kicks.onrender/forget-password?token=' + token + '">Reset</a> your password.</p>'
+            html: '<p>hay ' + name + ',please click here to <a href="https://nn-kicks.onrender.com/forget-password?token=' + token + '">Reset</a> your password.</p>'
 
         }
         transporter.sendMail(mailOption, function (error, info) {
