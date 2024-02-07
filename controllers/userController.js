@@ -320,7 +320,7 @@ const verifyLogin = async (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
         const userData = await User.findOne({ email: email });
-
+        console.log(userData)
         if (userData.is_admin === 1) {
             res.redirect('/admin')
         }
