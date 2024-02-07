@@ -320,29 +320,32 @@ const verifyLogin = async (req, res) => {
         const email = req.body.email;
         const password = req.body.password;
         const userData = await User.findOne({ email: email });
-        console.log(userData)
-        if (userData.is_admin === 1) {
-            res.redirect('/admin')
-        }
-        if (userData!==null) {
+
+
+        if (userData!=null) {
+            if (userData.is_admin === 1) {
+                res.redirect('/admin')
+            }
+
             const passwordMatch = await bcrypt.compare(password, userData.password);
-
+            console.log(passwordMatch)
             if (passwordMatch) {
+                if(userData.block === true){
+                    res.render('user_login', { message: "Sorry you were blocked ny admin" })
 
-                if (userData.is_verified === 0 || userData.block === true) {
+                }else if (userData.is_verified === 0) {
 
                     res.render('user_login', { message: "Please verify your mail." })
-                }
-                else {
+                }else {
 
                     req.session.user_id = userData._id;
 
                     res.redirect('/home');
                 }
 
-            }else {
-               
-                res.render('user_login', { message: "Your Email and Password are incorrect" });
+            }
+            else {
+                res.render('user_login', { message: "Your Password is incorrect" });
             }
 
 
@@ -350,8 +353,11 @@ const verifyLogin = async (req, res) => {
             res.render('user_login', { message: "Enter valid inputs" });
         }
         else {
-            res.render('user_login', { message: "Your Email or password is not valid" });
+            res.render('user_login', { message: "Your Email is incorrect" });
         }
+
+
+
 
     } catch (error) {
         console.log(error.message);
