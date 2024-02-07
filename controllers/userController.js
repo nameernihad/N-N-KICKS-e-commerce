@@ -324,7 +324,7 @@ const verifyLogin = async (req, res) => {
         if (userData.is_admin === 1) {
             res.redirect('/admin')
         }
-        if (userData) {
+        if (userData!==null) {
             const passwordMatch = await bcrypt.compare(password, userData.password);
 
             if (passwordMatch) {
@@ -341,7 +341,7 @@ const verifyLogin = async (req, res) => {
                 }
 
             }else {
-                console.log(userData)
+               
                 res.render('user_login', { message: "Your Email and Password are incorrect" });
             }
 
@@ -352,9 +352,6 @@ const verifyLogin = async (req, res) => {
         else {
             res.render('user_login', { message: "Your Email or password is not valid" });
         }
-
-
-
 
     } catch (error) {
         console.log(error.message);
